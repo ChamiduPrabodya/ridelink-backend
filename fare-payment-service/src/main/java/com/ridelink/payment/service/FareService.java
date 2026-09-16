@@ -3,6 +3,7 @@ package com.ridelink.payment.service;
 import org.springframework.stereotype.Service;
 
 import com.ridelink.payment.dto.FareEstimateResponse;
+import com.ridelink.payment.dto.FinalFareResponse;
 
 @Service
 public class FareService {
@@ -19,6 +20,18 @@ public class FareService {
                 BASE_FARE,
                 RATE_PER_KM,
                 estimatedFare
+        );
+    }
+
+    public FinalFareResponse calculateFinalFare(Double actualDistanceKm) {
+
+        double finalFare = BASE_FARE + (actualDistanceKm * RATE_PER_KM);
+
+        return new FinalFareResponse(
+                actualDistanceKm,
+                BASE_FARE,
+                RATE_PER_KM,
+                finalFare
         );
     }
 }

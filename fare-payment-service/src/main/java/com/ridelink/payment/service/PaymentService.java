@@ -4,7 +4,9 @@ import org.springframework.stereotype.Service;
 
 import com.ridelink.payment.dto.PaymentRequest;
 import com.ridelink.payment.dto.PaymentResponse;
+import com.ridelink.payment.dto.ReceiptResponse;
 import com.ridelink.payment.entity.Payment;
+import com.ridelink.payment.exception.PaymentNotFoundException;
 import com.ridelink.payment.repository.PaymentRepository;
 
 @Service
@@ -32,10 +34,23 @@ public class PaymentService {
     public PaymentResponse getPaymentById(Long id) {
 
         Payment payment = paymentRepository.findById(id)
-                .orElseThrow(() ->
-                        new RuntimeException("Payment not found with ID: " + id));
+                .orElseThrow(() -> new PaymentNotFoundException(id));
 
         return convertToResponse(payment);
+    }
+
+    public ReceiptResponse getReceipt(Long paymentId) {
+
+        Payment payment = paymentRepository.findById(paymentId)
+                .orElseThrow(() -> new PaymentNotFoundException(paymentId));
+
+        return new ReceiptResponse(
+                payment.getId(),
+                payment.getRideId(),
+                payment.getAmount(),
+                payment.getStatus(),
+                payment.getCreatedAt()
+        );
     }
 
     private PaymentResponse convertToResponse(Payment payment) {

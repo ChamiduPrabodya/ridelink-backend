@@ -10,6 +10,7 @@ import static org.mockito.Mockito.when;
 
 import com.ridelink.payment.dto.PaymentRequest;
 import com.ridelink.payment.dto.PaymentResponse;
+import com.ridelink.payment.dto.ReceiptResponse;
 import com.ridelink.payment.entity.Payment;
 import com.ridelink.payment.repository.PaymentRepository;
 
@@ -63,5 +64,28 @@ class PaymentServiceTest {
         assertEquals(101L, response.getRideId());
         assertEquals(1160.0, response.getAmount());
         assertEquals("PAID", response.getStatus());
+    }
+
+    @Test
+    void shouldGenerateReceiptForPayment() {
+
+        PaymentRepository paymentRepository =
+                Mockito.mock(PaymentRepository.class);
+
+        PaymentService paymentService =
+                new PaymentService(paymentRepository);
+
+        Payment payment =
+                new Payment(101L, 1160.0, "PAID");
+
+        when(paymentRepository.findById(1L))
+                .thenReturn(Optional.of(payment));
+
+        ReceiptResponse response =
+                paymentService.getReceipt(1L);
+
+        assertEquals(101L, response.getRideId());
+        assertEquals(1160.0, response.getAmount());
+        assertEquals("PAID", response.getPaymentStatus());
     }
 }

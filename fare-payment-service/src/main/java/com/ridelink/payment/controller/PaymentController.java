@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.ridelink.payment.dto.PaymentRequest;
 import com.ridelink.payment.dto.PaymentResponse;
+import com.ridelink.payment.dto.ReceiptResponse;
 import com.ridelink.payment.service.PaymentService;
 
 import jakarta.validation.Valid;
@@ -38,6 +39,15 @@ public class PaymentController {
             @PathVariable Long id) {
 
         PaymentResponse response = paymentService.getPaymentById(id);
+
+        return ResponseEntity.ok(response);
+    }
+
+    @GetMapping("/{id}/receipt")
+    public ResponseEntity<ReceiptResponse> getReceipt(
+            @PathVariable Long id) {
+
+        ReceiptResponse response = paymentService.getReceipt(id);
 
         return ResponseEntity.ok(response);
     }

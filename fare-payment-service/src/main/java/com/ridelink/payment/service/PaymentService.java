@@ -6,6 +6,7 @@ import com.ridelink.payment.dto.PaymentRequest;
 import com.ridelink.payment.dto.PaymentResponse;
 import com.ridelink.payment.dto.ReceiptResponse;
 import com.ridelink.payment.entity.Payment;
+import com.ridelink.payment.exception.PaymentNotFoundException;
 import com.ridelink.payment.repository.PaymentRepository;
 
 @Service
@@ -33,8 +34,7 @@ public class PaymentService {
     public PaymentResponse getPaymentById(Long id) {
 
         Payment payment = paymentRepository.findById(id)
-                .orElseThrow(() ->
-                        new RuntimeException("Payment not found with ID: " + id));
+                .orElseThrow(() -> new PaymentNotFoundException(id));
 
         return convertToResponse(payment);
     }
@@ -42,8 +42,7 @@ public class PaymentService {
     public ReceiptResponse getReceipt(Long paymentId) {
 
         Payment payment = paymentRepository.findById(paymentId)
-                .orElseThrow(() ->
-                        new RuntimeException("Payment not found with ID: " + paymentId));
+                .orElseThrow(() -> new PaymentNotFoundException(paymentId));
 
         return new ReceiptResponse(
                 payment.getId(),

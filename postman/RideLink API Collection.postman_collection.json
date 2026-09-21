@@ -1,0 +1,349 @@
+{
+  "info": {
+    "_postman_id": "86629d4a-1cec-4ba1-9c23-d5057d8c56bd",
+    "name": "RideLink API Collection",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "51375105",
+    "_collection_link": "https://go.postman.co/collection/51375105-86629d4a-1cec-4ba1-9c23-d5057d8c56bd?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Driver APIs",
+      "item": [
+        {
+          "name": "http://localhost:8082/api/drivers",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"accountId\": 1,\r\n  \"serviceArea\": \"Colombo\",\r\n  \"latitude\": 6.9271,\r\n  \"longitude\": 79.8612,\r\n  \"availabilityStatus\": \"AVAILABLE\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8082/api/drivers",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8082",
+              "path": [
+                "api",
+                "drivers"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "http://localhost:8082/api/drivers",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8082/api/drivers",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8082",
+              "path": [
+                "api",
+                "drivers"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "http://localhost:8082/api/drivers/1",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8082/api/drivers/1",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8082",
+              "path": [
+                "api",
+                "drivers",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": " http://localhost:8082/api/drivers/1",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"accountId\": 1,\r\n  \"serviceArea\": \"Negombo\",\r\n  \"latitude\": 7.2083,\r\n  \"longitude\": 79.8358,\r\n  \"availabilityStatus\": \"AVAILABLE\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8082/api/drivers/1",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8082",
+              "path": [
+                "api",
+                "drivers",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "http://localhost:8082/api/drivers/1/availability",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"status\": \"ON_RIDE\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8082/api/drivers/1/availability",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8082",
+              "path": [
+                "api",
+                "drivers",
+                "1",
+                "availability"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Vehicle APIs",
+      "item": [
+        {
+          "name": "http://localhost:8082/api/vehicles",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"driverId\": 2,\r\n  \"registrationNumber\": \"CAB-1233\",\r\n  \"vehicleType\": \"CAR\",\r\n  \"brand\": \"Toyota\",\r\n  \"model\": \"Prius\",\r\n  \"colour\": \"black\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8082/api/vehicles",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8082",
+              "path": [
+                "api",
+                "vehicles"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "http://localhost:8082/api/vehicles",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8082/api/vehicles",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8082",
+              "path": [
+                "api",
+                "vehicles"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "http://localhost:8082/api/vehicles/1",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8082/api/vehicles/1",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8082",
+              "path": [
+                "api",
+                "vehicles",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "http://localhost:8082/api/vehicles/driver/1",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8082/api/vehicles/driver/1",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8082",
+              "path": [
+                "api",
+                "vehicles",
+                "driver",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Negative Tests",
+      "item": [
+        {
+          "name": "http://localhost:8082/api/drivers/9999",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8082/api/drivers/9999",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8082",
+              "path": [
+                "api",
+                "drivers",
+                "9999"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "http://localhost:8082/api/vehicles/9999",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8082/api/vehicles/9999",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8082",
+              "path": [
+                "api",
+                "vehicles",
+                "9999"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "http://localhost:8082/api/drivers",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"accountId\": 2,\r\n  \"availabilityStatus\": \"AVAILABLE\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8082/api/drivers",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8082",
+              "path": [
+                "api",
+                "drivers"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "http://localhost:8082/api/vehicles",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"driverId\": 1,\r\n  \"registrationNumber\": \"CAB-1233\",\r\n  \"vehicleType\": \"CAR\",\r\n  \"brand\": \"Honda\",\r\n  \"model\": \"Vezel\",\r\n  \"colour\": \"Black\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8082/api/vehicles",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8082",
+              "path": [
+                "api",
+                "vehicles"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ]
+}

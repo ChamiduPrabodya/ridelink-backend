@@ -1,25 +1,24 @@
 package com.ridelink.driver.model;
 
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.index.Indexed;
-import org.springframework.data.mongodb.core.mapping.Document;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Document(collection = "vehicles")
+@Entity
+@Table(name = "vehicles")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 public class Vehicle {
 
     @Id
-    private String id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
-    @Indexed(name = "driverId_1")
-    private String driverId;
+    private Long driverId;
 
-    @Indexed(name = "registrationNumber_1", unique = true)
+    @Column(unique = true)
     private String registrationNumber;
 
     private String vehicleType;

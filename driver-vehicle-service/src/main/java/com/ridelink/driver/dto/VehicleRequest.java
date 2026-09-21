@@ -1,13 +1,14 @@
 package com.ridelink.driver.dto;
 
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 
 @Data
 public class VehicleRequest {
 
-    @NotBlank(message = "Driver ID is required")
-    private String driverId;
+    @NotNull(message = "Driver ID is required")
+    private Long driverId;
 
     @NotBlank(message = "Registration number is required")
     private String registrationNumber;

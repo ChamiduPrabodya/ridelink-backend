@@ -45,7 +45,7 @@ public class VehicleController {
     // Get vehicle by ID
     @GetMapping("/{id}")
     public ResponseEntity<VehicleResponse> getVehicleById(
-            @PathVariable String id) {
+            @PathVariable Long id) {
 
         return ResponseEntity.ok(
                 vehicleService.getVehicleById(id)
@@ -55,7 +55,7 @@ public class VehicleController {
     // Get vehicles belonging to driver
     @GetMapping("/driver/{driverId}")
     public ResponseEntity<List<VehicleResponse>> getVehiclesByDriver(
-            @PathVariable String driverId) {
+            @PathVariable Long driverId) {
 
         return ResponseEntity.ok(
                 vehicleService.getVehiclesByDriverId(driverId)
@@ -65,7 +65,7 @@ public class VehicleController {
     // Update vehicle
     @PutMapping("/{id}")
     public ResponseEntity<VehicleResponse> updateVehicle(
-            @PathVariable String id,
+            @PathVariable Long id,
             @Valid @RequestBody VehicleRequest request) {
 
         return ResponseEntity.ok(
@@ -76,7 +76,7 @@ public class VehicleController {
     // Delete vehicle
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteVehicle(
-            @PathVariable String id) {
+            @PathVariable Long id) {
 
         vehicleService.deleteVehicle(id);
 

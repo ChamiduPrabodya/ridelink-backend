@@ -10,8 +10,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class DriverResponse {
 
-    private String id;
-    private String accountId;
+    private Long id;
+    private Long accountId;
     private String serviceArea;
     private Double latitude;
     private Double longitude;

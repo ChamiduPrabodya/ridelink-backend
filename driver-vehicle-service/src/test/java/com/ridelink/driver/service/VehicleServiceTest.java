@@ -40,14 +40,14 @@ class VehicleServiceTest {
         VehicleRequest request =
                 new VehicleRequest();
 
-        request.setDriverId("1");
+        request.setDriverId(1L);
         request.setRegistrationNumber("CAB-1234");
         request.setVehicleType("CAR");
         request.setBrand("Toyota");
         request.setModel("Prius");
         request.setColour("White");
 
-        when(driverRepository.existsById("1"))
+        when(driverRepository.existsById(1L))
                 .thenReturn(true);
 
         when(
@@ -63,7 +63,7 @@ class VehicleServiceTest {
                     Vehicle vehicle =
                             invocation.getArgument(0);
 
-                    vehicle.setId("1");
+                    vehicle.setId(1L);
 
                     return vehicle;
                 });
@@ -72,7 +72,7 @@ class VehicleServiceTest {
                 vehicleService.addVehicle(request);
 
         assertNotNull(response);
-        assertEquals("1", response.getId());
+        assertEquals(1L, response.getId());
         assertEquals(
                 "CAB-1234",
                 response.getRegistrationNumber()
@@ -91,14 +91,14 @@ class VehicleServiceTest {
         VehicleRequest request =
                 new VehicleRequest();
 
-        request.setDriverId("999");
+        request.setDriverId(999L);
         request.setRegistrationNumber("CAB-1234");
         request.setVehicleType("CAR");
         request.setBrand("Toyota");
         request.setModel("Prius");
         request.setColour("White");
 
-        when(driverRepository.existsById("999"))
+        when(driverRepository.existsById(999L))
                 .thenReturn(false);
 
         assertThrows(
@@ -120,14 +120,14 @@ class VehicleServiceTest {
         VehicleRequest request =
                 new VehicleRequest();
 
-        request.setDriverId("1");
+        request.setDriverId(1L);
         request.setRegistrationNumber("CAB-1234");
         request.setVehicleType("CAR");
         request.setBrand("Toyota");
         request.setModel("Prius");
         request.setColour("White");
 
-        when(driverRepository.existsById("1"))
+        when(driverRepository.existsById(1L))
                 .thenReturn(true);
 
         when(
@@ -149,8 +149,8 @@ class VehicleServiceTest {
     void getVehicleById_success() {
 
         Vehicle vehicle = new Vehicle(
-                "1",
-                "1",
+                1L,
+                1L,
                 "CAB-1234",
                 "CAR",
                 "Toyota",
@@ -158,13 +158,13 @@ class VehicleServiceTest {
                 "White"
         );
 
-        when(vehicleRepository.findById("1"))
+        when(vehicleRepository.findById(1L))
                 .thenReturn(Optional.of(vehicle));
 
         VehicleResponse response =
-                vehicleService.getVehicleById("1");
+                vehicleService.getVehicleById(1L);
 
-        assertEquals("1", response.getId());
+        assertEquals(1L, response.getId());
 
         assertEquals(
                 "CAB-1234",
@@ -177,13 +177,13 @@ class VehicleServiceTest {
     @Test
     void getVehicleById_notFound() {
 
-        when(vehicleRepository.findById("999"))
+        when(vehicleRepository.findById(999L))
                 .thenReturn(Optional.empty());
 
         assertThrows(
                 VehicleNotFoundException.class,
                 () -> vehicleService
-                        .getVehicleById("999")
+                        .getVehicleById(999L)
         );
     }
 
@@ -193,8 +193,8 @@ class VehicleServiceTest {
     void getVehiclesByDriverId_success() {
 
         Vehicle vehicle = new Vehicle(
-                "1",
-                "1",
+                1L,
+                1L,
                 "CAB-1234",
                 "CAR",
                 "Toyota",
@@ -202,15 +202,15 @@ class VehicleServiceTest {
                 "White"
         );
 
-        when(driverRepository.existsById("1"))
+        when(driverRepository.existsById(1L))
                 .thenReturn(true);
 
-        when(vehicleRepository.findByDriverId("1"))
+        when(vehicleRepository.findByDriverId(1L))
                 .thenReturn(List.of(vehicle));
 
         List<VehicleResponse> vehicles =
                 vehicleService
-                        .getVehiclesByDriverId("1");
+                        .getVehiclesByDriverId(1L);
 
         assertEquals(1, vehicles.size());
 
@@ -226,8 +226,8 @@ class VehicleServiceTest {
     void deleteVehicle_success() {
 
         Vehicle vehicle = new Vehicle(
-                "1",
-                "1",
+                1L,
+                1L,
                 "CAB-1234",
                 "CAR",
                 "Toyota",
@@ -235,10 +235,10 @@ class VehicleServiceTest {
                 "White"
         );
 
-        when(vehicleRepository.findById("1"))
+        when(vehicleRepository.findById(1L))
                 .thenReturn(Optional.of(vehicle));
 
-        vehicleService.deleteVehicle("1");
+        vehicleService.deleteVehicle(1L);
 
         verify(
                 vehicleRepository,

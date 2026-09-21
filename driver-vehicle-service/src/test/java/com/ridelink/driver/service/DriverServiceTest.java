@@ -36,7 +36,7 @@ class DriverServiceTest {
     void createDriver_success() {
 
         DriverRequest request = new DriverRequest();
-        request.setAccountId("1");
+        request.setAccountId(1L);
         request.setServiceArea("Colombo");
         request.setLatitude(6.9271);
         request.setLongitude(79.8612);
@@ -46,7 +46,7 @@ class DriverServiceTest {
                 .thenAnswer(invocation -> {
 
                     Driver driver = invocation.getArgument(0);
-                    driver.setId("1");
+                    driver.setId(1L);
 
                     return driver;
                 });
@@ -55,8 +55,8 @@ class DriverServiceTest {
                 driverService.createDriver(request);
 
         assertNotNull(response);
-        assertEquals("1", response.getId());
-        assertEquals("1", response.getAccountId());
+        assertEquals(1L, response.getId());
+        assertEquals(1L, response.getAccountId());
         assertEquals("Colombo", response.getServiceArea());
         assertEquals(
                 AvailabilityStatus.AVAILABLE,
@@ -73,21 +73,21 @@ class DriverServiceTest {
     void getDriverById_success() {
 
         Driver driver = new Driver(
-                "1",
-                "1",
+                1L,
+                1L,
                 "Colombo",
                 6.9271,
                 79.8612,
                 AvailabilityStatus.AVAILABLE
         );
 
-        when(driverRepository.findById("1"))
+        when(driverRepository.findById(1L))
                 .thenReturn(Optional.of(driver));
 
         DriverResponse response =
-                driverService.getDriverById("1");
+                driverService.getDriverById(1L);
 
-        assertEquals("1", response.getId());
+        assertEquals(1L, response.getId());
         assertEquals("Colombo", response.getServiceArea());
     }
 
@@ -96,12 +96,12 @@ class DriverServiceTest {
     @Test
     void getDriverById_notFound() {
 
-        when(driverRepository.findById("999"))
+        when(driverRepository.findById(999L))
                 .thenReturn(Optional.empty());
 
         assertThrows(
                 DriverNotFoundException.class,
-                () -> driverService.getDriverById("999")
+                () -> driverService.getDriverById(999L)
         );
     }
 
@@ -111,15 +111,15 @@ class DriverServiceTest {
     void updateAvailability_success() {
 
         Driver driver = new Driver(
-                "1",
-                "1",
+                1L,
+                1L,
                 "Colombo",
                 6.9271,
                 79.8612,
                 AvailabilityStatus.UNAVAILABLE
         );
 
-        when(driverRepository.findById("1"))
+        when(driverRepository.findById(1L))
                 .thenReturn(Optional.of(driver));
 
         when(driverRepository.save(any(Driver.class)))
@@ -136,7 +136,7 @@ class DriverServiceTest {
 
         DriverResponse response =
                 driverService.updateAvailability(
-                        "1",
+                        1L,
                         request
                 );
 
@@ -152,15 +152,15 @@ class DriverServiceTest {
     void updateLocation_success() {
 
         Driver driver = new Driver(
-                "1",
-                "1",
+                1L,
+                1L,
                 "Colombo",
                 6.9271,
                 79.8612,
                 AvailabilityStatus.AVAILABLE
         );
 
-        when(driverRepository.findById("1"))
+        when(driverRepository.findById(1L))
                 .thenReturn(Optional.of(driver));
 
         when(driverRepository.save(any(Driver.class)))
@@ -176,7 +176,7 @@ class DriverServiceTest {
 
         DriverResponse response =
                 driverService.updateLocation(
-                        "1",
+                        1L,
                         request
                 );
 
@@ -197,8 +197,8 @@ class DriverServiceTest {
     void getAvailableDrivers_success() {
 
         Driver driver1 = new Driver(
-                "1",
-                "1",
+                1L,
+                1L,
                 "Colombo",
                 6.9271,
                 79.8612,
@@ -206,8 +206,8 @@ class DriverServiceTest {
         );
 
         Driver driver2 = new Driver(
-                "2",
-                "2",
+                2L,
+                2L,
                 "Negombo",
                 7.2083,
                 79.8358,

@@ -8,8 +8,8 @@ import lombok.Data;
 @Data
 public class DriverRequest {
 
-    @NotNull(message = "Account ID is required")
-    private Long accountId;
+    @NotBlank(message = "Account ID is required")
+    private String accountId;
 
     @NotBlank(message = "Service area is required")
     private String serviceArea;

@@ -57,7 +57,7 @@ public class VehicleService {
     }
 
     // Get vehicle by ID
-    public VehicleResponse getVehicleById(Long id) {
+    public VehicleResponse getVehicleById(String id) {
 
         Vehicle vehicle = findVehicle(id);
 
@@ -74,7 +74,7 @@ public class VehicleService {
     }
 
     // Get vehicles by driver ID
-    public List<VehicleResponse> getVehiclesByDriverId(Long driverId) {
+    public List<VehicleResponse> getVehiclesByDriverId(String driverId) {
 
         if (!driverRepository.existsById(driverId)) {
             throw new DriverNotFoundException(
@@ -90,7 +90,7 @@ public class VehicleService {
 
     // Update vehicle
     public VehicleResponse updateVehicle(
-            Long id,
+            String id,
             VehicleRequest request) {
 
         Vehicle vehicle = findVehicle(id);
@@ -114,7 +114,7 @@ public class VehicleService {
     }
 
     // Delete vehicle
-    public void deleteVehicle(Long id) {
+    public void deleteVehicle(String id) {
 
         Vehicle vehicle = findVehicle(id);
 
@@ -122,7 +122,7 @@ public class VehicleService {
     }
 
     // Find vehicle internally
-    private Vehicle findVehicle(Long id) {
+    private Vehicle findVehicle(String id) {
 
         return vehicleRepository.findById(id)
                 .orElseThrow(() ->

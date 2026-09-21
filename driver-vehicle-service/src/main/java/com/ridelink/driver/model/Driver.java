@@ -1,23 +1,22 @@
 package com.ridelink.driver.model;
 
 import com.ridelink.driver.enums.AvailabilityStatus;
-import jakarta.persistence.*;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Entity
-@Table(name = "drivers")
+@Document(collection = "drivers")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 public class Driver {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private String id;
 
-    private Long accountId;
+    private String accountId;
 
     private String serviceArea;
 
@@ -25,6 +24,5 @@ public class Driver {
 
     private Double longitude;
 
-    @Enumerated(EnumType.STRING)
     private AvailabilityStatus availabilityStatus;
 }

@@ -1,0 +1,14 @@
+$kind: http-request
+description: ""
+url: http://localhost:8084/api/payments
+method: POST
+body:
+  type: json
+  content: "{\r
+
+    \  \"rideId\": 101,\r
+
+    \  \"amount\": 1160.0\r
+
+    }"
+order: 4446548381865445

@@ -21,7 +21,7 @@
         <java.version>17</java.version>
     </properties>
 
-        <dependencies>
+    <dependencies>
         <dependency>
             <groupId>org.springdoc</groupId>
             <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>

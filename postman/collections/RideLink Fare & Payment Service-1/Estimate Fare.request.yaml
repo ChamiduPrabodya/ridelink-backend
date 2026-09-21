@@ -1,0 +1,13 @@
+$kind: http-request
+description: ""
+url: http://localhost:8084/api/fares/estimate
+method: POST
+body:
+  type: json
+  content: "{\r\n  \"distanceKm\": 10\r\n}"
+auth:
+  type: basic
+  credentials:
+    username: ""
+    password: ""
+order: 1289112499126503

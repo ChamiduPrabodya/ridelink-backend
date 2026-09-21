@@ -5,6 +5,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/rides")
 public class RideController {
@@ -24,5 +26,35 @@ public class RideController {
     @GetMapping("/{id}")
     public Ride getById(@PathVariable Long id) {
         return rideService.getRide(id);
+    }
+
+    @GetMapping
+    public List<Ride> getAll() {
+        return rideService.getAllRides();
+    }
+
+    @PostMapping("/{id}/assign")
+    public Ride assignDriver(@PathVariable Long id) {
+        return rideService.assignDriver(id);
+    }
+
+    @PostMapping("/{id}/accept")
+    public Ride accept(@PathVariable Long id) {
+        return rideService.acceptRide(id);
+    }
+
+    @PostMapping("/{id}/start")
+    public Ride start(@PathVariable Long id) {
+        return rideService.startRide(id);
+    }
+
+    @PostMapping("/{id}/complete")
+    public Ride complete(@PathVariable Long id) {
+        return rideService.completeRide(id);
+    }
+
+    @PostMapping("/{id}/cancel")
+    public Ride cancel(@PathVariable Long id) {
+        return rideService.cancelRide(id);
     }
 }

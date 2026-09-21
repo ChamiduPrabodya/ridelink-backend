@@ -1,0 +1,263 @@
+﻿{
+  "info": {
+    "_postman_id": "8f3b2d1c-4e5a-6b7c-8d9e-0f1a2b3c4d5e",
+    "name": "RideLink Account Service",
+    "description": "Complete Postman collection for the RideLink Account Service microservice.\nIncludes automatic token extraction on login.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "1. Register Account",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"fullName\": \"John Doe\",\n  \"email\": \"user99@example.com\",\n  \"password\": \"password123\",\n  \"phoneNumber\": \"+1234567890\",\n  \"role\": \"PASSENGER\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/accounts/register",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "accounts",
+            "register"
+          ]
+        },
+        "description": "Registers a new user (PASSENGER or DRIVER)."
+      },
+      "response": []
+    },
+    {
+      "name": "2. Login",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "var jsonData = pm.response.json();",
+              "if (jsonData.token) {",
+              "    pm.collectionVariables.set(\"token\", jsonData.token);",
+              "    console.log(\"Saved token:\", jsonData.token);",
+              "}",
+              "if (jsonData.id) {",
+              "    pm.collectionVariables.set(\"userId\", jsonData.id);",
+              "    console.log(\"Saved userId:\", jsonData.id);",
+              "}"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"email\": \"johndoe@gmail.com\",\n  \"password\": \"password123\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/accounts/login",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "accounts",
+            "login"
+          ]
+        },
+        "description": "Authenticates user and automatically saves the JWT token into the collection variable {{token}}."
+      },
+      "response": []
+    },
+    {
+      "name": "3. Get My Profile (/me)",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{token}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/accounts/me",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "accounts",
+            "me"
+          ]
+        },
+        "description": "Retrieves the currently authenticated user's profile using the Bearer token."
+      },
+      "response": []
+    },
+    {
+      "name": "4. Get Account By ID",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{token}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/accounts/{{userId}}",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "accounts",
+            "{{userId}}"
+          ]
+        },
+        "description": "Fetches user details by user ID."
+      },
+      "response": []
+    },
+    {
+      "name": "5. Update Profile",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{token}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"fullName\": \"John Doe Updated\",\n  \"phoneNumber\": \"+19876543210\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/accounts/{{userId}}",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "accounts",
+            "{{userId}}"
+          ]
+        },
+        "description": "Updates full name and phone number for the user."
+      },
+      "response": []
+    },
+    {
+      "name": "6. Update Status",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{token}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "PATCH",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"status\": \"ACTIVE\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/accounts/{{userId}}/status",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "accounts",
+            "{{userId}}",
+            "status"
+          ]
+        },
+        "description": "Updates account status to ACTIVE, INACTIVE, or SUSPENDED."
+      },
+      "response": []
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:8081",
+      "type": "string"
+    },
+    {
+      "key": "token",
+      "value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJqb2huZG9lQGdtYWlsLmNvbSIsImFjY291bnRJZCI6MzQsInJvbGUiOiJQQVNTRU5HRVIiLCJmdWxsTmFtZSI6IkpvaG4gU21pdGgiLCJpYXQiOjE3ODk5NjgxMDYsImV4cCI6MTc5MDA1NDUwNn0.5QXq8VZ0Y93Rms6l6lfAE_d6HrMxnYqv6zgtPutyybFJBwYrlzVsg4-XD91qSzTAZ-U4IiAJYcuXV6kjF59e5g",
+      "type": "string"
+    },
+    {
+      "key": "userId",
+      "value": "34",
+      "type": "string"
+    }
+  ]
+}

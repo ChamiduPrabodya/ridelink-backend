@@ -1,4 +1,4 @@
-package com.ridelink.ride;
+package com.ridelink.ride.client;
 
 import org.springframework.stereotype.Component;
 import java.util.Optional;

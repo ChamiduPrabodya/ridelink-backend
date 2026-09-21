@@ -1,4 +1,6 @@
-package com.ridelink.ride;
+package com.ridelink.ride.exception;
+
+import com.ridelink.ride.model.RideStatus;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;

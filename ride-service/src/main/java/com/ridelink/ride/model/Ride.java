@@ -1,4 +1,4 @@
-package com.ridelink.ride;
+package com.ridelink.ride.model;
 
 import jakarta.persistence.*;
 import java.time.Instant;

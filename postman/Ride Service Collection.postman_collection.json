@@ -1,0 +1,614 @@
+{
+  "info": {
+    "_postman_id": "dbc0573d-41ed-4523-b98b-80116803cdf2",
+    "name": "Ride Service Collection",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "57632024",
+    "_collection_link": "https://go.postman.co/collection/57632024-dbc0573d-41ed-4523-b98b-80116803cdf2?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "rides",
+      "item": [
+        {
+          "name": "{id}",
+          "item": [
+            {
+              "name": "start",
+              "item": [
+                {
+                  "name": "start",
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "*/*"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/rides/:id/start",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "rides",
+                        ":id",
+                        "start"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id",
+                          "value": "8205"
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "*/*"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/rides/:id/start",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "rides",
+                            ":id",
+                            "start"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id",
+                              "value": "8205"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "text",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "*/*"
+                        }
+                      ],
+                      "cookie": [],
+                      "body": "{\n  \"id\": 7782,\n  \"passengerId\": 914,\n  \"driverId\": 1353,\n  \"pickupLocation\": \"string\",\n  \"destinationLocation\": \"string\",\n  \"status\": \"REQUESTED\",\n  \"createdAt\": \"2016-11-12T10:51:25.204Z\",\n  \"updatedAt\": \"2022-11-30T01:07:04.448Z\"\n}"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "complete",
+              "item": [
+                {
+                  "name": "complete",
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "*/*"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/rides/:id/complete",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "rides",
+                        ":id",
+                        "complete"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id",
+                          "value": "8205"
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "*/*"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/rides/:id/complete",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "rides",
+                            ":id",
+                            "complete"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id",
+                              "value": "8205"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "text",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "*/*"
+                        }
+                      ],
+                      "cookie": [],
+                      "body": "{\n  \"id\": 7782,\n  \"passengerId\": 914,\n  \"driverId\": 1353,\n  \"pickupLocation\": \"string\",\n  \"destinationLocation\": \"string\",\n  \"status\": \"REQUESTED\",\n  \"createdAt\": \"2016-11-12T10:51:25.204Z\",\n  \"updatedAt\": \"2022-11-30T01:07:04.448Z\"\n}"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "cancel",
+              "item": [
+                {
+                  "name": "cancel",
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "*/*"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/rides/:id/cancel",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "rides",
+                        ":id",
+                        "cancel"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id",
+                          "value": "8205"
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "*/*"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/rides/:id/cancel",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "rides",
+                            ":id",
+                            "cancel"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id",
+                              "value": "8205"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "text",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "*/*"
+                        }
+                      ],
+                      "cookie": [],
+                      "body": "{\n  \"id\": 7782,\n  \"passengerId\": 914,\n  \"driverId\": 1353,\n  \"pickupLocation\": \"string\",\n  \"destinationLocation\": \"string\",\n  \"status\": \"REQUESTED\",\n  \"createdAt\": \"2016-11-12T10:51:25.204Z\",\n  \"updatedAt\": \"2022-11-30T01:07:04.448Z\"\n}"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "assign",
+              "item": [
+                {
+                  "name": "assign Driver",
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "*/*"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/rides/:id/assign",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "rides",
+                        ":id",
+                        "assign"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id",
+                          "value": "8205"
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "*/*"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/rides/:id/assign",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "rides",
+                            ":id",
+                            "assign"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id",
+                              "value": "8205"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "text",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "*/*"
+                        }
+                      ],
+                      "cookie": [],
+                      "body": "{\n  \"id\": 7782,\n  \"passengerId\": 914,\n  \"driverId\": 1353,\n  \"pickupLocation\": \"string\",\n  \"destinationLocation\": \"string\",\n  \"status\": \"REQUESTED\",\n  \"createdAt\": \"2016-11-12T10:51:25.204Z\",\n  \"updatedAt\": \"2022-11-30T01:07:04.448Z\"\n}"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "accept",
+              "item": [
+                {
+                  "name": "accept",
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "*/*"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/rides/:id/accept",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "rides",
+                        ":id",
+                        "accept"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id",
+                          "value": "8205"
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "*/*"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/rides/:id/accept",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "rides",
+                            ":id",
+                            "accept"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id",
+                              "value": "8205"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "text",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "*/*"
+                        }
+                      ],
+                      "cookie": [],
+                      "body": "{\n  \"id\": 7782,\n  \"passengerId\": 914,\n  \"driverId\": 1353,\n  \"pickupLocation\": \"string\",\n  \"destinationLocation\": \"string\",\n  \"status\": \"REQUESTED\",\n  \"createdAt\": \"2016-11-12T10:51:25.204Z\",\n  \"updatedAt\": \"2022-11-30T01:07:04.448Z\"\n}"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "get By Id",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/rides/:id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "rides",
+                    ":id"
+                  ],
+                  "variable": [
+                    {
+                      "key": "id",
+                      "value": "8205"
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "name": "OK",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "*/*"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/rides/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "rides",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id",
+                          "value": "8205"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "*/*"
+                    }
+                  ],
+                  "cookie": [],
+                  "body": "{\n  \"id\": 7782,\n  \"passengerId\": 914,\n  \"driverId\": 1353,\n  \"pickupLocation\": \"string\",\n  \"destinationLocation\": \"string\",\n  \"status\": \"REQUESTED\",\n  \"createdAt\": \"2016-11-12T10:51:25.204Z\",\n  \"updatedAt\": \"2022-11-30T01:07:04.448Z\"\n}"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "get All",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/rides",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "rides"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "OK",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/rides",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "rides"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "text",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "cookie": [],
+              "body": "[\n  {\n    \"id\": 948,\n    \"passengerId\": 6600,\n    \"driverId\": 2459,\n    \"pickupLocation\": \"string\",\n    \"destinationLocation\": \"string\",\n    \"status\": \"CANCELLED\",\n    \"createdAt\": \"1985-04-16T01:30:59.243Z\",\n    \"updatedAt\": \"1992-05-04T21:19:39.796Z\"\n  },\n  {\n    \"id\": 3229,\n    \"passengerId\": 1536,\n    \"driverId\": 700,\n    \"pickupLocation\": \"string\",\n    \"destinationLocation\": \"string\",\n    \"status\": \"REQUESTED\",\n    \"createdAt\": \"1953-06-21T12:19:56.216Z\",\n    \"updatedAt\": \"1966-05-24T08:46:36.696Z\"\n  }\n]"
+            }
+          ]
+        },
+        {
+          "name": "create",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"destinationLocation\": \"string\",\n  \"passengerId\": 2242,\n  \"pickupLocation\": \"string\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/rides",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "rides"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "OK",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"destinationLocation\": \"string\",\n  \"passengerId\": 2242,\n  \"pickupLocation\": \"string\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/rides",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "rides"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "text",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n  \"id\": 7782,\n  \"passengerId\": 914,\n  \"driverId\": 1353,\n  \"pickupLocation\": \"string\",\n  \"destinationLocation\": \"string\",\n  \"status\": \"REQUESTED\",\n  \"createdAt\": \"2016-11-12T10:51:25.204Z\",\n  \"updatedAt\": \"2022-11-30T01:07:04.448Z\"\n}"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:8083"
+    }
+  ]
+}

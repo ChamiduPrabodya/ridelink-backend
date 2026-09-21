@@ -1,0 +1,5 @@
+$kind: http-request
+description: ""
+url: http://localhost:8084/api/payments/1/receipt
+method: GET
+order: 4497625789471643

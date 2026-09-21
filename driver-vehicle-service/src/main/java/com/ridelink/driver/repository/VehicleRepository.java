@@ -1,16 +1,16 @@
 package com.ridelink.driver.repository;
 
 import com.ridelink.driver.model.Vehicle;
-import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
 import java.util.Optional;
 
 @Repository
-public interface VehicleRepository extends JpaRepository<Vehicle, Long> {
+public interface VehicleRepository extends MongoRepository<Vehicle, String> {
 
-    List<Vehicle> findByDriverId(Long driverId);
+    List<Vehicle> findByDriverId(String driverId);
 
     Optional<Vehicle> findByRegistrationNumber(String registrationNumber);
 

@@ -38,7 +38,7 @@ public class DriverService {
     }
 
     // Get driver by ID
-    public DriverResponse getDriverById(Long id) {
+    public DriverResponse getDriverById(String id) {
 
         Driver driver = findDriver(id);
 
@@ -55,7 +55,7 @@ public class DriverService {
     }
 
     // Update driver profile
-    public DriverResponse updateDriver(Long id, DriverRequest request) {
+    public DriverResponse updateDriver(String id, DriverRequest request) {
 
         Driver driver = findDriver(id);
 
@@ -72,7 +72,7 @@ public class DriverService {
 
     // Update availability
     public DriverResponse updateAvailability(
-            Long id,
+            String id,
             AvailabilityRequest request) {
 
         Driver driver = findDriver(id);
@@ -86,7 +86,7 @@ public class DriverService {
 
     // Update simulated location
     public DriverResponse updateLocation(
-            Long id,
+            String id,
             LocationRequest request) {
 
         Driver driver = findDriver(id);
@@ -110,7 +110,7 @@ public class DriverService {
     }
 
     // Find driver internally
-    private Driver findDriver(Long id) {
+    private Driver findDriver(String id) {
 
         return driverRepository.findById(id)
                 .orElseThrow(() ->

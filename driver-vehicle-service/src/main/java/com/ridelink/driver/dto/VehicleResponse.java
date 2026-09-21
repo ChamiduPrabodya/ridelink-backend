@@ -9,8 +9,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class VehicleResponse {
 
-    private Long id;
-    private Long driverId;
+    private String id;
+    private String driverId;
     private String registrationNumber;
     private String vehicleType;
     private String brand;

@@ -46,7 +46,7 @@ public class DriverController {
     // Get driver by ID
     @GetMapping("/{id}")
     public ResponseEntity<DriverResponse> getDriverById(
-            @PathVariable Long id) {
+            @PathVariable String id) {
 
         return ResponseEntity.ok(
                 driverService.getDriverById(id)
@@ -56,7 +56,7 @@ public class DriverController {
     // Update driver
     @PutMapping("/{id}")
     public ResponseEntity<DriverResponse> updateDriver(
-            @PathVariable Long id,
+            @PathVariable String id,
             @Valid @RequestBody DriverRequest request) {
 
         return ResponseEntity.ok(
@@ -67,7 +67,7 @@ public class DriverController {
     // Update availability
     @PutMapping("/{id}/availability")
     public ResponseEntity<DriverResponse> updateAvailability(
-            @PathVariable Long id,
+            @PathVariable String id,
             @Valid @RequestBody AvailabilityRequest request) {
 
         return ResponseEntity.ok(
@@ -78,7 +78,7 @@ public class DriverController {
     // Update simulated location
     @PutMapping("/{id}/location")
     public ResponseEntity<DriverResponse> updateLocation(
-            @PathVariable Long id,
+            @PathVariable String id,
             @Valid @RequestBody LocationRequest request) {
 
         return ResponseEntity.ok(

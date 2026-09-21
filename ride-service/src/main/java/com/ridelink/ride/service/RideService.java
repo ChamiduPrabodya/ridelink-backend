@@ -1,4 +1,13 @@
-package com.ridelink.ride;
+package com.ridelink.ride.service;
+
+import com.ridelink.ride.client.DriverClient;
+import com.ridelink.ride.dto.CreateRideRequest;
+import com.ridelink.ride.exception.InvalidRideStatusTransitionException;
+import com.ridelink.ride.exception.NoAvailableDriverException;
+import com.ridelink.ride.exception.RideNotFoundException;
+import com.ridelink.ride.model.Ride;
+import com.ridelink.ride.model.RideStatus;
+import com.ridelink.ride.repository.RideRepository;
 
 import org.springframework.stereotype.Service;
 import java.time.Instant;

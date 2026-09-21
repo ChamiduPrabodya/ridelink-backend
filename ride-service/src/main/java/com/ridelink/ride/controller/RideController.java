@@ -1,4 +1,8 @@
-package com.ridelink.ride;
+package com.ridelink.ride.controller;
+
+import com.ridelink.ride.dto.CreateRideRequest;
+import com.ridelink.ride.model.Ride;
+import com.ridelink.ride.service.RideService;
 
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;

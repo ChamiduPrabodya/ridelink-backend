@@ -2,4 +2,4 @@
 
 Use this folder for RideLink architecture notes, service documentation, and setup guides.
 
-- [MongoDB setup and H2 data migration](mongodb.md)
+- [H2 database setup](h2.md) — current database configuration.
